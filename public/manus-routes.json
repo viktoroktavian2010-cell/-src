@@ -1,0 +1,1 @@
+{"routes":[{"path":"/","title":"Nuit Lumière — главная"},{"path":"/collection","title":"Коллекция ароматов"},{"path":"/aroma/:id","title":"Страница аромата"},{"path":"/maison","title":"О Maison Nuit Lumière"},{"path":"/delivery","title":"Доставка и возврат"},{"path":"/contact","title":"Контакты Maison"},{"path":"/privacy","title":"Конфиденциальность"}]}

@@ -1,0 +1,54 @@
+export const categoryFilters = ['Все ароматы', 'Цветочные', 'Древесные', 'Свежие', 'Амбровые', 'Пряные'] as const;
+export type ScentCategory = (typeof categoryFilters)[number];
+export type ProductCategory = Exclude<ScentCategory, 'Все ароматы'>;
+export type BottlePalette = {
+  background: string;
+  aura: string;
+  glassTop: string;
+  glassBottom: string;
+  metal: string;
+  label: string;
+};
+export type Product = {
+  id: string;
+  name: string;
+  price: number;
+  category: ProductCategory;
+  notes: string;
+  description: string;
+  palette: BottlePalette;
+  shape: 0 | 1 | 2 | 3;
+};
+
+export const products: Product[] = [
+  { id: 'nuit-lumiere-50', name: 'Nuit Lumière', price: 89, category: 'Амбровые', notes: 'Бергамот · Нероли · Сандал', description: 'Тёплый амбровый свет, который остаётся на коже до поздней ночи.', shape: 0, palette: { background: '#111c1d', aura: '#a89062', glassTop: '#254237', glassBottom: '#101e1b', metal: '#c5a76a', label: '#e8ddc9' } },
+  { id: 'ambre-velours', name: 'Ambre Velours', price: 118, category: 'Амбровые', notes: 'Лабданум · Ваниль · Бензоин', description: 'Смолистая мягкость в бархатном, почти золотом облаке.', shape: 1, palette: { background: '#251812', aura: '#c48340', glassTop: '#aa632d', glassBottom: '#46271b', metal: '#e0b66e', label: '#f0d9b9' } },
+  { id: 'rose-de-minuit', name: 'Rose de Minuit', price: 96, category: 'Цветочные', notes: 'Болгарская роза · Чёрная смородина · Пачули', description: 'Тёмная роза с тонкой ягодной искрой и глубокой основой.', shape: 2, palette: { background: '#24171c', aura: '#b75e70', glassTop: '#8b3d56', glassBottom: '#321d2a', metal: '#d7b07c', label: '#f2d9d3' } },
+  { id: 'santal-obscur', name: 'Santal Obscur', price: 112, category: 'Древесные', notes: 'Сандал · Кардамон · Кашмеран', description: 'Сливочная древесина, подсвеченная сухой пряностью.', shape: 3, palette: { background: '#1b1b17', aura: '#8c7850', glassTop: '#656144', glassBottom: '#292820', metal: '#c6a86a', label: '#e8dec4' } },
+  { id: 'iris-dargent', name: "Iris d'Argent", price: 104, category: 'Цветочные', notes: 'Ирис · Альдегиды · Белый мускус', description: 'Пудровый ирис и прозрачный мускус — строгая, светлая элегантность.', shape: 0, palette: { background: '#1d2025', aura: '#9ca7b8', glassTop: '#77889a', glassBottom: '#353d49', metal: '#c6cad1', label: '#edf0ed' } },
+  { id: 'the-de-lune', name: 'Thé de Lune', price: 87, category: 'Свежие', notes: 'Матча · Инжирный лист · Кедр', description: 'Зелёный чай в прохладном утреннем воздухе сада.', shape: 2, palette: { background: '#15201e', aura: '#9eb179', glassTop: '#617b5c', glassBottom: '#253a32', metal: '#bba878', label: '#e3e8d4' } },
+  { id: 'fleur-de-peau', name: 'Fleur de Peau', price: 99, category: 'Цветочные', notes: 'Пион · Роза · Кашемировый мускус', description: 'Чистый цветочный шлейф, нежный и близкий к коже.', shape: 1, palette: { background: '#241b20', aura: '#d1979e', glassTop: '#a77b88', glassBottom: '#513844', metal: '#dbc29d', label: '#f2e4dc' } },
+  { id: 'cedre-blanc', name: 'Cèdre Blanc', price: 94, category: 'Древесные', notes: 'Белый кедр · Ветивер · Минералы', description: 'Холодное дерево, чистая рубашка и тихая собранность.', shape: 3, palette: { background: '#172024', aura: '#9eafb1', glassTop: '#688186', glassBottom: '#293b40', metal: '#c1b18a', label: '#e8e6d9' } },
+  { id: 'vanille-celeste', name: 'Vanille Céleste', price: 92, category: 'Амбровые', notes: 'Мадагаскарская ваниль · Бобы тонка · Амбра', description: 'Воздушная ваниль без излишней сладости, согретая тонкой амброй.', shape: 0, palette: { background: '#241b14', aura: '#c9995d', glassTop: '#a7804b', glassBottom: '#4b3220', metal: '#dfbf85', label: '#f1e2c4' } },
+  { id: 'oud-imperial', name: 'Oud Impérial', price: 149, category: 'Древесные', notes: 'Уд · Шафран · Папирус', description: 'Густой тёмный уд с пряным золотым сиянием.', shape: 1, palette: { background: '#1d1715', aura: '#ad7740', glassTop: '#60412c', glassBottom: '#241b19', metal: '#d0a85e', label: '#dfcba2' } },
+  { id: 'neroli-dazur', name: "Néroli d'Azur", price: 91, category: 'Свежие', notes: 'Нероли · Горький апельсин · Белый чай', description: 'Солнечная цитрусовая свежесть с морским, чистым финалом.', shape: 2, palette: { background: '#172126', aura: '#8ab8bc', glassTop: '#4b8e98', glassBottom: '#24434d', metal: '#cfb77d', label: '#e6eeee' } },
+  { id: 'musc-satin', name: 'Musc Satin', price: 105, category: 'Амбровые', notes: 'Белый мускус · Амбретта · Ирис', description: 'Гладкий мускус с шелковистым пудровым сердцем.', shape: 0, palette: { background: '#201e1c', aura: '#b6a899', glassTop: '#8c8177', glassBottom: '#48413d', metal: '#d5c9b5', label: '#f0e7d9' } },
+  { id: 'pivoine-rouge', name: 'Pivoine Rouge', price: 97, category: 'Цветочные', notes: 'Пион · Личи · Розовый перец', description: 'Сочное цветение пиона с игривым фруктовым оттенком.', shape: 3, palette: { background: '#29191d', aura: '#ce6f7c', glassTop: '#b44e61', glassBottom: '#4a222e', metal: '#d7ad76', label: '#f4ded5' } },
+  { id: 'bois-de-minuit', name: 'Bois de Minuit', price: 116, category: 'Древесные', notes: 'Гваяковое дерево · Пачули · Какао', description: 'Тёплая тень леса: сухая древесина и мягкое какао.', shape: 1, palette: { background: '#171b18', aura: '#937151', glassTop: '#4c5945', glassBottom: '#232a22', metal: '#c0a270', label: '#e4dcc9' } },
+  { id: 'sel-marin', name: 'Sel Marin', price: 84, category: 'Свежие', notes: 'Морская соль · Лимон · Дрейфующее дерево', description: 'Солёный ветер и прозрачный свет на побережье.', shape: 2, palette: { background: '#152126', aura: '#81afbd', glassTop: '#568b9c', glassBottom: '#24414f', metal: '#c6b98b', label: '#e5eef0' } },
+  { id: 'jardin-secret', name: 'Jardin Secret', price: 103, category: 'Цветочные', notes: 'Жасмин · Ландыш · Мох', description: 'Тихий цветущий сад после дождя, укрытый зеленью.', shape: 0, palette: { background: '#17201a', aura: '#83a370', glassTop: '#506e50', glassBottom: '#273b2d', metal: '#c6b77e', label: '#e4e9d7' } },
+  { id: 'cuir-dor', name: "Cuir d'Or", price: 128, category: 'Пряные', notes: 'Мягкая кожа · Шафран · Сухая ваниль', description: 'Тонкая кожаная перчатка с пряным, золотистым шлейфом.', shape: 3, palette: { background: '#251b15', aura: '#bb8441', glassTop: '#8d5833', glassBottom: '#3c2920', metal: '#e0b867', label: '#f1dfc1' } },
+  { id: 'amande-nocturne', name: 'Amande Nocturne', price: 95, category: 'Амбровые', notes: 'Горький миндаль · Бензоин · Сливочный мускус', description: 'Миндальное тепло с бархатистым, почти дымчатым фоном.', shape: 2, palette: { background: '#231d18', aura: '#b18b66', glassTop: '#826149', glassBottom: '#443126', metal: '#d2b486', label: '#eee2cf' } },
+  { id: 'brume-daube', name: "Brume d'Aube", price: 86, category: 'Свежие', notes: 'Груша · Белый чай · Кашмеран', description: 'Прохладная дымка над садом и первые лучи рассвета.', shape: 0, palette: { background: '#172125', aura: '#9fbfc0', glassTop: '#6d9699', glassBottom: '#2d4c51', metal: '#c5bf9c', label: '#e8eddf' } },
+  { id: 'encens-de-soie', name: 'Encens de Soie', price: 121, category: 'Пряные', notes: 'Ладан · Мирра · Чёрный чай', description: 'Дым ладана становится тонким, как складка дорогого шёлка.', shape: 1, palette: { background: '#1c191b', aura: '#9a7f87', glassTop: '#635057', glassBottom: '#30262e', metal: '#c5a97c', label: '#e7ddd1' } },
+  { id: 'magnolia-velours', name: 'Magnolia Velours', price: 101, category: 'Цветочные', notes: 'Магнолия · Кашмирское дерево · Мускус', description: 'Кремовая магнолия с мягким, спокойным древесным основанием.', shape: 2, palette: { background: '#211d20', aura: '#c49b9a', glassTop: '#9a777d', glassBottom: '#44343b', metal: '#d3bd98', label: '#f1e5dc' } },
+  { id: 'gingembre-royal', name: 'Gingembre Royal', price: 98, category: 'Пряные', notes: 'Имбирь · Кардамон · Лимонная цедра', description: 'Яркий имбирный аккорд с тёплой, благородной пряностью.', shape: 3, palette: { background: '#241d15', aura: '#c99a4a', glassTop: '#9b7739', glassBottom: '#49331e', metal: '#e2bd67', label: '#f0e0be' } },
+  { id: 'poire-blanche', name: 'Poire Blanche', price: 88, category: 'Свежие', notes: 'Белая груша · Фрезия · Мускус', description: 'Сочная груша и прозрачная фрезия в воздушном шлейфе.', shape: 0, palette: { background: '#1c211d', aura: '#b5c186', glassTop: '#819268', glassBottom: '#394734', metal: '#c6bd8f', label: '#edf0dc' } },
+  { id: 'vetiver-brut', name: 'Vétiver Brut', price: 108, category: 'Древесные', notes: 'Ветивер · Грейпфрут · Дубовый мох', description: 'Сухой корень ветивера, чистый цитрус и прохладный мох.', shape: 1, palette: { background: '#1a201d', aura: '#96a071', glassTop: '#647052', glassBottom: '#2d392e', metal: '#c6b47d', label: '#e3e4d2' } },
+  { id: 'cerise-interdite', name: 'Cerise Interdite', price: 111, category: 'Цветочные', notes: 'Чёрная вишня · Роза · Бобы тонка', description: 'Спелая вишня в глубине бархатной розы и тонки.', shape: 2, palette: { background: '#28181e', aura: '#c04b63', glassTop: '#7d3042', glassBottom: '#341d2a', metal: '#d0a169', label: '#f2d7d4' } },
+  { id: 'lavande-noire', name: 'Lavande Noire', price: 90, category: 'Пряные', notes: 'Лаванда · Чёрный перец · Дуб', description: 'Тёмная лаванда с сухим перцем и благородной древесиной.', shape: 0, palette: { background: '#1e1a24', aura: '#8e7fac', glassTop: '#615578', glassBottom: '#322b43', metal: '#c8b28d', label: '#e8e1ed' } },
+  { id: 'rose-solaire', name: 'Rose Solaire', price: 99, category: 'Цветочные', notes: 'Турецкая роза · Мандарин · Амбретта', description: 'Светлая роза, согретая нежным мандариновым сиянием.', shape: 3, palette: { background: '#251b1c', aura: '#d18475', glassTop: '#ae625c', glassBottom: '#4a2b2d', metal: '#ddbd80', label: '#f3e2d6' } },
+  { id: 'figue-noire', name: 'Figue Noire', price: 94, category: 'Древесные', notes: 'Чёрный инжир · Лист фиалки · Сандал', description: 'Зелёный инжир и смолистый сандал в сумеречном саду.', shape: 2, palette: { background: '#19201c', aura: '#88965f', glassTop: '#596c43', glassBottom: '#29372d', metal: '#c2ad76', label: '#e5e7d7' } },
+  { id: 'ebene-sacre', name: 'Ébène Sacré', price: 132, category: 'Древесные', notes: 'Эбеновое дерево · Киприол · Лабданум', description: 'Гладкая тёмная древесина с церемониальной глубиной.', shape: 1, palette: { background: '#181719', aura: '#887466', glassTop: '#49403b', glassBottom: '#242122', metal: '#b9a17b', label: '#ded7ca' } },
+  { id: 'eau-de-lumiere', name: 'Eau de Lumière', price: 82, category: 'Свежие', notes: 'Лимон · Нероли · Кристальный мускус', description: 'Искристая чистота цитрусов и прохладного белого мускуса.', shape: 0, palette: { background: '#192324', aura: '#b1c7b7', glassTop: '#7da79b', glassBottom: '#345552', metal: '#d3c397', label: '#eff1df' } },
+];
